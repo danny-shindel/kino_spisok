@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <nav>
+        <a href="/" <%- title==='All Movies' ? 'class="active"' : '' %>>HOME</a>
+        <% if (user) { %>
+            <a href="/movies" <%- title==='Add Performer' ? 'class="active"' : '' %>>
+                MY MOVIES</a>
+            <a href="/movies/new" <%- title==='Add Movie' ? 'class="active"' : '' %>>ADD MOVIE</a>
+            <a href="/logout">LOG OUT</a>
+            <% } else { %>
+                <a href="/auth/google" class="login">LOG IN</a>
+                <% } %>
+    </nav>
+    <main>
+        <h1><%= title %></h1>
