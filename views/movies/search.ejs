@@ -1,6 +1,7 @@
 <% movies.forEach(function(movie){%>
     <div><%= movie.Title%></div></br>
     <div><%= movie.Year%></div></br>
+    <div><%= movie.Director%></div></br>
     <div> <img src="<%= movie.Poster%>" alt=""></div>
     <form action="/movies/create" method="POST">
         <button value="<%= movie.imdbID%>" name="imdb" type="submit">GO</button>

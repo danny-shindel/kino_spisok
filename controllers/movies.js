@@ -13,7 +13,9 @@ module.exports = {
 };
 
 function index(req, res) {
-  res.render('movies/index', { title: 'All Movies'});
+  Movie.find({users: [req.user._id]}, function(err,movies){
+    res.render('movies/index', { title: 'All Movies', movies });
+  })
 }
 
 function newMovie(req,res) {
@@ -24,29 +26,42 @@ function newMovie(req,res) {
 //info from form on req.query
 async function search(req,res) {
   const title = req.query.title;
-  if (!title) return res.render('movies/new', { title: 'New Movie' });
+  if (!title) return res.render('movies/new', { title: 'New Movie' }); ///please enter title
   const apiResult = await fetch(`${searchURL}${title}&type=movie`).then(res => res.json());
   const movies = apiResult.Search;
-  // movies.forEach(function(movie){
-  //   const infoMovie = fetch(`${saveURL}${movie.imdbID}`)
-  //   let a = infoMovie.Director;
-  //   console.log(infoMovie)
-  // })
-  // console.log(movies)
+  console.log(movies)
+  let search = [];
+  for (i=0;i < movies.length; i++){
+    const infoMovie = await fetch(`${saveURL}${movies[i].imdbID}`).then(res => res.json());
+    let a = infoMovie.Director;
+    movies[i].Director = a;
+    search.push(movies[i]);
+  }
+  if (!movies) return res.render('movies/new', { title: 'New Movie' }); ///add that movie cant be found or misspelled
   res.render('movies/search', {movies})
-}
+}///buster scrubs problem
 
-async function create(req, res) {
-  console.log(req.body.imdb)
-  const apiResult = await fetch(`${saveURL}${req.body.imdb}`).then(res => res.json());
-  Movie.create({},function(err,movie){
-    movie.info = apiResult
-    console.log(movie.info.Title)
-    console.log(movie.user)
-    movie.users = [req.user._id]
-    console.log(movie.users)
-    movie.save(function(err){
-      res.render('movies/index', { title: 'All Movies' });
-    });
+function create(req, res) {
+  Movie.findOne({ 'info.imdbID': req.body.imdb }).exec(async function(err,movie){
+    if (movie){
+      if (movie.users.includes(req.user._id)) { ///you already have this movies in your list
+        res.redirect('/')
+        return
+      } else {
+        movie.users.push(req.user._id);
+        movie.save(function (err) {
+          res.redirect('/movies');
+        })
+      }
+    } else {
+      const apiResult = await fetch(`${saveURL}${req.body.imdb}`).then(res => res.json());
+      Movie.create({}, function (err, movie) {
+        movie.info = apiResult
+        movie.users = [req.user._id]
+        movie.save(function (err) {
+          res.redirect('/movies');
+        });
+      })
+    }
   })
 }

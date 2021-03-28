@@ -3,13 +3,12 @@ const Schema = mongoose.Schema;
 
 const movieSchema = new Schema({
     info: {},
-    title: String,
-    year: String,
-    rate: String,
-    director: String,
-    release: Date,
     comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
     users: [{type: Schema.Types.ObjectId, ref: 'User'}],
+    watched: {
+        type: Boolean,
+        default: false,
+    }
 }, {
     timestamps: true
 });

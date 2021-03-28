@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const homeCtrl = require('../controllers/home');
+const isLoggedIn = require('../config/auth');
+
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('home', { title: 'HOME SCREEN' });
-});
+router.get('/', homeCtrl.index) 
 
 router.get('/auth/google', passport.authenticate(
   'google',

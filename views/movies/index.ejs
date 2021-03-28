@@ -1,4 +1,8 @@
 <%- include('../partials/header') %>
 
+<% movies.forEach(function(movie){%>
+    <div><%= movie.info.Title%></div>
+    <div><%= movie.info.Director%></div>
+<%})%>
 
 <%- include('../partials/footer') %>
