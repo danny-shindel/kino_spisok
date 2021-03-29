@@ -2,12 +2,8 @@
 
 <% movies.forEach(function(movie){%>
     </br>
-    <div>
-        <%= movie.info.Title%>
-    </div>
-    <div>
-        <%= movie.info.Director%>
-    </div>
+    <div><%= movie.info.Title%></div>
+    <div><%= movie.info.Director%></div>
     <% if (movie.comments.length) { %>
         <table>
             <thead>
@@ -19,45 +15,32 @@
                 </tr>
             </thead>
             <tbody>
-                <% let total=0 %>
                     <% movie.comments.forEach(function(c) { %>
-                        <% total +=c.rating %>
                             <tr>
-                                <td class="review-user"><img src="<%= r.userAvatar %>">&nbsp;
+                                <td class="review-user"><img style="height:2vmin" src="<%= c.userAvatar %>">&nbsp;
                                     <%= c.userName %>
                                 </td>
+                                <td><%= c.createdAt.toLocaleDateString() %></td>
+                                <td><%= c.content %></td>
                                 <td>
-                                    <%= c.createdAt.toLocaleDateString() %>
-                                </td>
-                                <td>
-                                    <%= c.content %>
-                                </td>
-                                <td>
-                                    <% if (user && user._id.equals(r.user)) { %>
-                                        <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST"><button
+                                    <% if (user && user._id.equals(c.user)) { %>
+                                        <form action="/comments/<%= c._id %>?_method=DELETE" method="POST"><button
                                                 type="submit">X</button>
                                         </form>
                                         <% } %>
                                 </td>
                             </tr>
                             <% }); %>
-                                <tr>
-                                    <td colspan="3"></td>
-                                    <td><strong>
-                                            <%= (total / movie.reviews.length).toFixed(1) %>
-                                        </strong></td>
-                                </tr>
+                             
             </tbody>
         </table>
         <% } else { %>
             <h5>No Reviews Yet</h5>
             <% } %>
     <% if (user) { %>
-        <form  method="POST" action="/comments/new">
+        <form  method="POST" action="/movies/<%=movie._id%>/comments">
             <label>Review:</label>
             <textarea name="content"></textarea>
-            <textarea name="movieID"  style="display:none"><%=movie._id%></textarea>
-            <!-- pass in movie id -->
             <input type="submit" value="Add Review">
         </form>
         <%} %>

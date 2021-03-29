@@ -1,35 +1,36 @@
 <%- include('../partials/header') %>
     <div class="movie-holder">
         <% movies.forEach(function(movie){%>
-            <div class="movie">
-                <div id="poster" style="background-image:url(<%= movie.Poster%>)"></div>
+            <div class="movie" style="border:.5vmin solid RGB(43,67,224) ">
+                <div id="poster" style="background-image:url(<%= movie.info.Poster%>)"></div>
                 <div id="title">
                     <div>
-                        <%= movie.Title%>
+                        <%= movie.info.Title%>
                     </div>
                 </div>
                 <div id="director">
                     <div class="small">Director</div>
                     <div class="big">
-                        <%= movie.Director%>
+                        <%= movie.info.Director%>
                     </div>
                 </div>
                 <div id="year">
                     <div class="small">Release Year</div>
                     <div class="big">
-                        <%= movie.Year%>
+                        <%= movie.info.Year%>
                     </div>
                 </div>
                 <div id="description">
                     <div class="small">Description</div>
                     <div class="biginfo">
-                        <%= movie.Plot%>
+                        <%= movie.info.Plot%>
                     </div>
                 </div>
                 <div id="links">
+                    <a href="/movies/<%=movie._id%>/seen">UNSEE</a>
                     <a href="">DETAILS</a>
-                    <form action="/movies/create" method="POST">
-                        <button id="button2" value="<%= movie.imdbID%>" name="imdb" type="submit">ADD MOVIE</button>
+                    <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST"><button id="button"
+                            type="submit">DELETE</button>
                     </form>
                 </div>
             </div>
@@ -41,25 +42,4 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <% movies.forEach(function(movie){%>
-    <div><%= movie.Title%></div></br>
-    <div><%= movie.Year%></div></br>
-    <div><%= movie.Director%></div></br>
-    <div> <img src="<%= movie.Poster%>" alt=""></div>
-    <form action="/movies/create" method="POST">
-        <button value="<%= movie.imdbID%>" name="imdb" type="submit">GO</button>
-    </form>
-<%})%> -->
 

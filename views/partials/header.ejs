@@ -3,18 +3,22 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/movies.css' />
+    <link rel='stylesheet' href='/stylesheets/moviesearch.css' />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
-        <a href="/" <%- title==='All Movies' ? 'class="active"' : '' %>>HOME</a>
+        <a href="/" id="home">HOME</a>
         <% if (user) { %>
-            <a href="/movies" <%- title==='Add Performer' ? 'class="active"' : '' %>>
-                MY MOVIES</a>
-            <a href="/movies/new" <%- title==='Add Movie' ? 'class="active"' : '' %>>ADD MOVIE</a>
-            <a href="/logout">LOG OUT</a>
+            <a href="/movies/new" >ADD</a>
+            <a href="/movies" > MY MOVIES</a>
+            <a href="/movies/seen">SEEN</a>
+            <a href="/logout" id="logout">LOG OUT</a>
             <% } else { %>
                 <a href="/auth/google" class="login">LOG IN</a>
                 <% } %>
     </nav>
     <main>
-        <h1><%= title %></h1>
+        <!-- <h1><%= title %></h1> -->

@@ -1,0 +1,36 @@
+#newform {
+    display:flex;
+    justify-content: center;
+}
+
+#newform > form {
+    margin-top: 8vmin
+}
+
+#newform > form > input {
+    font-size: 4vmin;
+    font-family: 'Montserrat', sans-serif;
+    height: 7vmin;
+    width: 70vmin;
+    border-radius: 1vmin;
+    border: .4vmin solid blue;
+    margin-right:5vmin;
+}
+
+#button2 {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 2.5vmin;
+    color: RGB(126, 130, 156);
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    border: 2px solid white;
+}
+
+#button2:hover {
+    color: white;
+    background-color: RGB(34, 37, 135);
+    font-size: 2.5vmin;
+}
+/* MAKE DIV BORDER CHANGE COLOR WHEN ON MOVIES IN SEARCH */
