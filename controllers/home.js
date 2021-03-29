@@ -6,6 +6,6 @@ module.exports = {
 
 function index(req, res) {
     Movie.aggregate([{ $addFields: { numUsers: { $size: '$users' } } }, { $sort: { numUsers: -1 } }, { $limit: 5 }])
-    .then(movies => res.render('home', { title: 'HOME SCREEN', movies }));
+    .then(movies => res.render('home', { title: 'HOME SCREEN', movies, page:'home' }));
 }
 

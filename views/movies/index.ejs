@@ -3,7 +3,7 @@
 <% movies.forEach(function(movie){%>
     <div class="movie">
         <div id="poster" style="background-image:url(<%= movie.info.Poster%>)"></div>
-        <div id="title">
+        <div id="title" <%- movie.info.Title.length > 30  ? 'class="bigtext"' : '' %>>
             <div><%= movie.info.Title%></div>
         </div>
         <div id="director">

@@ -29,6 +29,7 @@
     border-radius: 4vmin;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: 50% 0%;
 }
 
 #title {
@@ -41,6 +42,11 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    overflow: hidden;
+}
+
+#title.bigtext {
+    font-size:3.8vmin;
 }
 
 #director{

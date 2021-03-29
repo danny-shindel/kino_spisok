@@ -1,0 +1,42 @@
+nav {
+  grid-area: nav;
+  background-color: RGB(66,68,81);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+nav > a{
+  margin: 2vmin;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 3vmin;
+  color: RGB(126, 130, 156);
+}
+
+nav > a:hover{
+  color: RGB(64,65,63);
+  background-color: white;
+  font-size: 3vmin;
+}
+
+nav > a.active {
+  color: white;
+  cursor: default;
+}
+
+nav > a.active:hover{
+  color: RGB(64,65,63);
+  background-color: white;
+  font-size: 3vmin;
+}
+
+nav > #home {
+  margin-right: auto;
+}
+
+nav > #logout {
+  margin-left: auto;
+}

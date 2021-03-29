@@ -1,8 +1,11 @@
 <%- include('../partials/header') %>
 <div id="newform">
     <form action='/movies/search' method="GET">
-        <input type="text" name="title" placeholder="SEARCH MOVIE TITLE">
+        <input autocomplete="off" type="text" name="title" placeholder="SEARCH MOVIE TITLE" value="<%= (search.length > 0)? search : ""%>">
     </form>
+    <% if (message.length > 0) %><div id="help"><%= message%></div>
 </div>
 
 <%- include('../partials/footer') %>
+
+<!-- <%= (search.length> 1 )? search : "SEARCH MOVIE TITLE"%> -->

@@ -1,20 +1,18 @@
 #newform {
     display:flex;
+    flex-direction: column;
     justify-content: center;
-}
-
-#newform > form {
-    margin-top: 8vmin
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #newform > form > input {
+    margin: 6vmin 0 3vmin 0;
     font-size: 4vmin;
-    font-family: 'Montserrat', sans-serif;
     height: 7vmin;
     width: 70vmin;
     border-radius: 1vmin;
     border: .4vmin solid blue;
-    margin-right:5vmin;
 }
 
 #button2 {
@@ -33,4 +31,10 @@
     background-color: RGB(34, 37, 135);
     font-size: 2.5vmin;
 }
+
+#help {
+    color: RGB(66,68,81);
+}
+
+
 /* MAKE DIV BORDER CHANGE COLOR WHEN ON MOVIES IN SEARCH */

@@ -5,16 +5,17 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/movies.css' />
     <link rel='stylesheet' href='/stylesheets/moviesearch.css' />
+    <link rel='stylesheet' href='/stylesheets/nav.css' />
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
-        <a href="/" id="home">HOME</a>
+        <a href="/" id="home" <%- page==='home' ? 'class="active"' : '' %>>HOME</a>
         <% if (user) { %>
-            <a href="/movies/new" >ADD</a>
-            <a href="/movies" > MY MOVIES</a>
-            <a href="/movies/seen">SEEN</a>
+            <a href="/movies/new"<%- page==='add' ? 'class="active"' : '' %> >ADD</a>
+            <a href="/movies"<%- page==='movies' ? 'class="active"' : '' %> > MY MOVIES</a>
+            <a href="/movies/seen"<%- page==='seen' ? 'class="active"' : '' %>>SEEN</a>
             <a href="/logout" id="logout">LOG OUT</a>
             <% } else { %>
                 <a href="/auth/google" class="login">LOG IN</a>
