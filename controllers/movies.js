@@ -16,7 +16,7 @@ module.exports = {
 };
 
 function index(req, res) {
-  Movie.find({users: req.user._id}, function(err,movies){
+  Movie.find({ users: req.user._id }).sort({ 'info.Director': 1 }).exec(function(err,movies){//////set to last name
     res.render('movies/index', { title: 'My Movies', movies, page:'movies' });
   })
 }
@@ -49,7 +49,7 @@ function addSeen(req, res) {
 
 
 function newMovie(req,res) {
-  res.render('movies/new', { title: 'New Movie', page: 'add', message: '', search: ''})/////
+  res.render('movies/new', { title: 'New Movie', page: 'add', message: 'PRESS ENTER TO SEARCH', search: ''})
 }
 
 
@@ -99,6 +99,7 @@ function create(req, res) {
       const apiResult = await fetch(`${saveURL}${req.body.imdb}`).then(res => res.json());
       Movie.create({}, function (err, movie) {
         movie.info = apiResult
+        if (movie.info.Poster === "N/A") movie.info.Poster = "https://i.imgur.com/9aAnclH.png";
         movie.users = [req.user._id]
         movie.save(function (err) {
           res.redirect('/movies');

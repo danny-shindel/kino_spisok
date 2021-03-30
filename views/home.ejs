@@ -1,5 +1,41 @@
 <%- include('./partials/header') %>
 
+<div class="movie-holder-home">
+    <% movies.forEach(function(movie){%>
+        <div class="movie-home">
+            <div id="poster" style="background-image:url(<%= movie.info.Poster%>)"></div>
+            <div id="title" <%- movie.info.Title.length> 30 ? 'class="bigtext"' : '' %>>
+                <div>
+                    <%= movie.info.Title%>
+                </div>
+            </div>
+            <div id="director">
+                <div class="small">Director</div>
+                <div class="big">
+                    <%= movie.info.Director%>
+                </div>
+            </div>
+            <div id="year">
+                <div class="small">Release Year</div>
+                <div class="big">
+                    <%= movie.info.Year%>
+                </div>
+            </div>
+            <div id="description">
+                <div class="small">Description</div>
+                <div class="biginfo">
+                    <%= movie.info.Plot%>
+                </div>
+            </div>
+            <div id="links">
+                <a href="">COMMENTS</a>
+                <a href="/movies/<%=movie._id%>">DETAILS</a>
+                <a href="">ADD MOVIE</a>
+            </div>
+        </div>
+        <%})%>
+</div>
+
 <% movies.forEach(function(movie){%>
     </br>
     <div><%= movie.info.Title%></div>

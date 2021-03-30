@@ -20,7 +20,7 @@
         </div>
         <div id="links">
             <a href="/movies/<%=movie._id%>/seen">SEEN</a>
-            <a href="">DETAILS</a>
+            <a href="/movies/<%=movie._id%>">DETAILS</a>
             <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST"><button id="button" type="submit">DELETE</button>
             </form>
         </div>

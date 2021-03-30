@@ -1,4 +1,5 @@
 #newform {
+    height: 80vmin;
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -7,7 +8,7 @@
 }
 
 #newform > form > input {
-    margin: 6vmin 0 3vmin 0;
+    margin-bottom: 3vmin;
     font-size: 4vmin;
     height: 7vmin;
     width: 70vmin;
