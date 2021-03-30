@@ -12,14 +12,16 @@
 </head>
 <body>
     <nav>
-        <a href="/" id="home" <%- page==='home' ? 'class="active"' : '' %>>HOME</a>
         <% if (user) { %>
+            <a href="/" id="home" <%- page==='home' ? 'class="active"' : '' %>>HOME</a>
             <a href="/movies/new"<%- page==='add' ? 'class="active"' : '' %> >ADD</a>
-            <a href="/movies"<%- page==='movies' ? 'class="active"' : '' %> > MY MOVIES</a>
+            <a href="/movies"<%- page==='movies' ? 'class="active"' : '' %> > WATCH LIST</a>
             <a href="/movies/seen"<%- page==='seen' ? 'class="active"' : '' %>>SEEN</a>
             <a href="/logout" id="logout">LOG OUT</a>
             <% } else { %>
-                <a href="/auth/google" class="login">LOG IN</a>
+                <a href="" id="test" class="unclick"></a>
+                <a href="/" id="kino" class="unclick"<%- page==='home' ? 'class="active"' : '' %>>KINO SPISOK</a>
+                <a href="/auth/google" id="login">LOG IN</a>
                 <% } %>
     </nav>
     <main>

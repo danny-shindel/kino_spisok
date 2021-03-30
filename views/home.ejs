@@ -7,6 +7,7 @@
             <div id="title" <%- movie.info.Title.length> 30 ? 'class="bigtext"' : '' %>>
                 <div>
                     <%= movie.info.Title%>
+                    <!-- <%= movie.users.length %> -->
                 </div>
             </div>
             <div id="director">
@@ -30,13 +31,19 @@
             <div id="links">
                 <a href="">COMMENTS</a>
                 <a href="/movies/<%=movie._id%>">DETAILS</a>
-                <a href="">ADD MOVIE</a>
+                <% if (user) {%>
+                    <% if ( !movie.users.some(lover => lover.equals(user._id)) && !movie.seenUsers.some(lover => lover.equals(user._id))) {%>
+                    <form action="/movies/create?home=true" method="POST">
+                        <button id="button2" value="<%= movie.info.imdbID%>" name="imdb" type="submit">ADD MOVIE</button>
+                    </form>
+                    <%}%>
+                <%}%>
             </div>
         </div>
         <%})%>
 </div>
 
-<% movies.forEach(function(movie){%>
+<!-- <% movies.forEach(function(movie){%>
     </br>
     <div><%= movie.info.Title%></div>
     <div><%= movie.info.Director%></div>
@@ -80,6 +87,6 @@
             <input type="submit" value="Add Review">
         </form>
         <%} %>
-    <%})%>
+    <%})%> -->
 
 <%- include('./partials/footer') %>

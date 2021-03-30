@@ -11,7 +11,7 @@ const commentSchema = new Schema({
 });
 
 const movieSchema = new Schema({
-    info: {},
+    info: Schema.Types.Mixed,
     comments: [commentSchema],
     users: [{type: Schema.Types.ObjectId, ref: 'User'}],
     seenUsers: [{ type: Schema.Types.ObjectId, ref: 'User' }],

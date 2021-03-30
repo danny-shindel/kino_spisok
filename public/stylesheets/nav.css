@@ -2,7 +2,7 @@ nav {
   grid-area: nav;
   background-color: RGB(66,68,81);
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   font-family: 'Montserrat', sans-serif;
 }
@@ -30,7 +30,6 @@ nav > a.active {
 nav > a.active:hover{
   color: RGB(64,65,63);
   background-color: white;
-  font-size: 3vmin;
 }
 
 nav > #home {
@@ -40,3 +39,10 @@ nav > #home {
 nav > #logout {
   margin-left: auto;
 }
+
+nav > .unclick {
+  pointer-events: none;
+  cursor: default;
+  color: white;
+}
+

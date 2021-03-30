@@ -15,15 +15,28 @@ module.exports = {
   delete: deleteMovies,
 };
 
+function getLastNames(movies) {
+  let sorted = movies.map(movie => {
+    let splitted = movie.info.Director.split(' ');
+    let lastName = splitted[splitted.length - 1];
+    movie.lastName = lastName;
+    return movie;
+  });
+  sorted.sort((a, b) => a.lastName.localeCompare(b.lastName));
+  return sorted
+}
+
 function index(req, res) {
-  Movie.find({ users: req.user._id }).sort({ 'info.Director': 1 }).exec(function(err,movies){//////set to last name
-    res.render('movies/index', { title: 'My Movies', movies, page:'movies' });
+  Movie.find({ users: req.user._id }, function(err, movies) {
+    let sorted = getLastNames(movies);
+    res.render('movies/index', { title: 'My Movies', movies:sorted, page:'movies' });
   })
 }
 
 function seenIndex(req, res) {
   Movie.find({ seenUsers: req.user._id }, function (err, movies) {
-    res.render('movies/seen', { title: 'Seen Movies', movies, page: 'seen' });
+    let sorted = getLastNames(movies);
+    res.render('movies/seen', { title: 'Seen Movies', movies:sorted, page: 'seen' });
   })
 }
 
@@ -92,6 +105,7 @@ function create(req, res) {
       } else {
         movie.users.push(req.user._id);
         movie.save(function (err) {
+          if (req.query.home) return res.redirect('/');
           res.redirect('/movies');
         })
       }
