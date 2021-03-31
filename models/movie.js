@@ -14,7 +14,7 @@ const ratingSchema = new Schema({
     rating: {
         type: Number,
         min: 1,
-        max: 10,
+        max: 5,
     },
     user: { type: Schema.Types.ObjectId, ref: 'User' },
 }, {
