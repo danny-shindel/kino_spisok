@@ -19,8 +19,8 @@
             <div class="info"><%= movie.info.Plot%></div>
         </div>
         <div id="links">
-            <a href="/movies/<%=movie._id%>/rating">SEEN</a>
-            <a href="/movies/<%=movie._id%>">DETAILS</a>
+            <a id="regular" href="/movies/<%=movie._id%>/rating">SEEN</a>
+            <a id="imdb" target="_blank" href="https://www.imdb.com/title/<%= movie.info.imdbID%>/">IMDB</a>
             <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST"><button id="delete" type="submit">DELETE</button>
             </form>
         </div>

@@ -1,6 +1,6 @@
 /* new.ejs */
 
-#searchadd {
+#addbutton {
     text-decoration: none;
     padding: 10px;
     border-radius: 5px;
@@ -11,7 +11,7 @@
     border: 2px solid white;
 }
 
-#searchadd:hover {
+#addbutton:hover {
     color: white;
     background-color: RGB(34, 37, 135);
     font-size: 2.5vmin;

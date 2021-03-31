@@ -51,6 +51,7 @@
 }
 
 #director{
+    grid-area: director;
     margin-left: 2vmin;
     display: flex;
     flex-direction: column;
@@ -59,6 +60,7 @@
 }
 
 #year {
+    grid-area: year;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -93,6 +95,8 @@
     font-size: 2vmin;
 }
 
+/* LINKS */
+
 #links {
     display:flex;
     justify-content: space-around;
@@ -104,13 +108,7 @@
     padding: 10px;
     border-radius: 5px;
     font-size: 2.5vmin;
-    color: RGB(126, 130, 156);
-}
-
-#links > a:hover{
-    color: white;
-    background-color: RGB(66,68,81);
-    font-size: 2.5vmin;
+    color: RGB(138, 140, 153);
 }
 
 #delete {
@@ -118,7 +116,7 @@
     padding: 10px;
     border-radius: 5px;
     font-size: 2.5vmin;
-    color: RGB(126, 130, 156);
+    color: RGB(138, 140, 153);
     background-color: white;
     border: 2px solid white;
 }
@@ -126,5 +124,36 @@
 #delete:hover {
     color: white;
     background-color: red;
+    font-weight: 600;
+    /* font-size: 2.5vmin; */
+}
+
+#imdb:hover {
+    background-color: RGB(245,197,23);
+    color: RGB(18,18,18);
+    font-weight: 600;
+}
+
+#addbutton {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
     font-size: 2.5vmin;
+    color: RGB(138, 140, 153);
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    border: 2px solid white;
+}
+
+#addbutton:hover,
+#regular:hover{
+    color: white;
+    background-color: RGB(34, 37, 135);
+    font-weight: 600;
+}
+
+#comments:hover {
+    color: white;
+    background-color: RGB(66,68,81);
+    font-weight: 600;
 }

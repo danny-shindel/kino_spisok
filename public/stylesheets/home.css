@@ -7,23 +7,22 @@
 }
 
 .movie-home {
+    font-family: 'Montserrat', sans-serif;
     padding: 2vmin 4vmin 2vmin 2vmin;
     background-color: white;
     margin: 4vmin 0 2vmin 0;
     width: 130vmin;
-    /* height: 50vmin; */
     border: .5vmin solid red;
     border-radius: 6vmin;
     display: grid;
     grid-template-columns: 35vmin 1fr 17vmin;
-    grid-template-rows: 14vmin 13vmin 13vmin 5vmin 1fr 1fr;
+    grid-template-rows: 14vmin 13vmin 13vmin 5vmin 1fr;
     grid-template-areas:
     "poster title title"
     "poster director year"
     "poster description description"
     "poster links links"
     "reviews reviews reviews"
-    "post post post"
 }
 
 #usercount {
@@ -44,22 +43,12 @@
     grid-area: reviews;
 }
 
-#post {
-    grid-area: post;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-}
-
-#postpost {
-    margin-left: 2vmin
-}
-
 #postarea {
+    grid-area: reviews;
     width: 125vmin;
     height: 10vmin;
     border-radius: 3vmin;
-    border: .4vmin solid RGB(66,68,81);
+    border: .4vmin solid RGB(126, 130, 156);
     font-size: 2.5vmin;
     font-family: 'Montserrat', sans-serif;
 }
@@ -78,9 +67,38 @@ button:focus {
 
 #review-holder {
     margin-top:2vmin;
-    display: flex;
-    
+    display: grid;
+    grid-template-columns: 35vmin 1fr 17vmin 5vmin;
+    grid-template-rows: 5vmin;
+    grid-template-areas:
+    " username comment date delete"
 }
+
+#usernamecomment {
+    grid-area: username;
+    text-align: center;
+}
+
+#comment {
+    grid-area: comment;
+    text-align: center;
+    width:10vmin;
+}
+
+#dateofcomment {
+    grid-area: date;
+    text-align: center;
+}
+
+#commentdelete {
+    grid-area: delete;
+    text-align: center;
+}
+
+#post {
+    margin-top: 2vmin;
+}
+
 
 
 

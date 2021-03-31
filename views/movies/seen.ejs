@@ -3,7 +3,7 @@
         <% movies.forEach(function(movie){%>
             <div class="movie" style="border:.5vmin solid RGB(43,67,224) ">
                 <div id="poster" style="background-image:url(<%= movie.info.Poster%>)"></div>
-                <div id="title" <%- movie.info.Title.length> 50 ? 'class="bigtext"' : '' %>>
+                <div id="title" <%- movie.info.Title.length> 50 ? 'class="longtext"' : '' %>>
                     <div><%= movie.info.Title%></div>
                 </div>
                 <div id="director">
@@ -16,11 +16,11 @@
                 </div>
                 <div id="description">
                     <div class="small">Description</div>
-                    <div class="biginfo"><%= movie.info.Plot%></div>
+                    <div class="info"><%= movie.info.Plot%></div>
                 </div>
                 <div id="links">
-                    <a href="/movies/<%=movie._id%>/seen">UNSEE</a>
-                    <a href="/movies/<%=movie._id%>">DETAILS</a>
+                    <a id = "regular" href="/movies/<%=movie._id%>/seen">UNSEE</a>
+                    <a id="imdb" target="_blank" href="https://www.imdb.com/title/<%= movie.info.imdbID%>/">IMDB</a>
                     <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST"><button id="delete"
                             type="submit">DELETE</button>
                     </form>
