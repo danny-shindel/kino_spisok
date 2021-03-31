@@ -8,8 +8,11 @@ router.get('/', isLoggedIn, moviesCtrl.index);
 router.get('/new', isLoggedIn, moviesCtrl.new);
 router.get('/search', isLoggedIn, moviesCtrl.search);
 router.get('/seen', isLoggedIn, moviesCtrl.seenIndex);
-router.get('/:id/seen', isLoggedIn, moviesCtrl.addSeen)
+router.get('/:id/rating', isLoggedIn, moviesCtrl.rating);
+router.get('/:id/seen', isLoggedIn, moviesCtrl.unSeen);
+router.get('/:id', isLoggedIn, moviesCtrl.show);
 router.delete('/:id', isLoggedIn, moviesCtrl.delete);
+router.post('/:id/seen', isLoggedIn, moviesCtrl.createRating);
 router.post('/create', isLoggedIn, moviesCtrl.create);
 
 module.exports = router;

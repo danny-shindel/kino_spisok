@@ -4,19 +4,14 @@ module.exports = {
     create,
     delete: deleteComment,
 }
-function create(req, res) {
-    if (!req.body.content){
-        res.redirect('/') 
-        return;
-    }   
-    Movie.findById(req.params.id, function (err, movie) {
 
+function create(req, res) {
+    if (!req.body.content) return res.redirect('/'); 
+    Movie.findById(req.params.id, function (err, movie) {
         req.body.user = req.user._id;
         req.body.userName = req.user.name;
         req.body.userAvatar = req.user.avatar;
-
         movie.comments.push(req.body);
-        console.log(movie)
         movie.save(function (err) {
             res.redirect(`/`);
         });

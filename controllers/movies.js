@@ -7,24 +7,16 @@ const Movie = require('../models/movie');
 
 module.exports = {
   index,
+  seenIndex,
   new: newMovie,
+  unSeen,
   search,
   create,
-  seenIndex,
-  addSeen,
   delete: deleteMovies,
+  show,
+  rating,
+  createRating,
 };
-
-function getLastNames(movies) {
-  let sorted = movies.map(movie => {
-    let splitted = movie.info.Director.split(' ');
-    let lastName = splitted[splitted.length - 1];
-    movie.lastName = lastName;
-    return movie;
-  });
-  sorted.sort((a, b) => a.lastName.localeCompare(b.lastName));
-  return sorted
-}
 
 function index(req, res) {
   Movie.find({ users: req.user._id }, function(err, movies) {
@@ -40,31 +32,52 @@ function seenIndex(req, res) {
   })
 }
 
-function addSeen(req, res) {
-  Movie.findById(req.params.id).then(function (movie) {
-    if (movie.users.includes(req.user._id)){
-      movie.users.remove(req.user._id);
-      movie.seenUsers.push(req.user._id);
-      movie.save().then(function () {
-        res.redirect('/movies');
-      }).catch(function (err) {
-        return next(err);
-      });
-    } else {
-      movie.seenUsers.remove(req.user._id);
-      movie.users.push(req.user._id);
-      movie.save().then(function() {
-        res.redirect('/movies/seen')
-      })
-    }
-  })
+function getLastNames(movies) {
+  let sorted = movies.map(movie => {
+    let splitted = movie.info.Director.split(' ');
+    let lastName = splitted[splitted.length - 1];
+    if (lastName === "N/A") lastName = "zzzzz"
+    movie.lastName = lastName;
+    return movie;
+  });
+  sorted.sort((a, b) => a.lastName.localeCompare(b.lastName));
+  return sorted
 }
-
 
 function newMovie(req,res) {
   res.render('movies/new', { title: 'New Movie', page: 'add', message: 'PRESS ENTER TO SEARCH', search: ''})
 }
 
+function unSeen(req, res) {
+  Movie.findById(req.params.id).then(function (movie) {
+      console.log(movie.ratings)
+      const rating = movie.ratings.find(function(rating){
+        return rating.user.toString() === req.user._id.toString();
+      });
+      console.log(rating)
+      rating.remove();
+      movie.seenUsers.remove(req.user._id);
+      movie.users.push(req.user._id);
+      movie.save().then(function() {
+        res.redirect('/movies/seen')
+      })
+  })
+}
+
+function createRating(req, res){
+  Movie.findById(req.params.id).then(function (movie) {
+      req.body.user = req.user._id
+      movie.ratings.push(req.body)
+      console.log(req.body.rating)
+      movie.users.remove(req.user._id);
+      movie.seenUsers.push(req.user._id);
+      movie.save().then(function () {
+        res.redirect('/movies')
+      }).catch(function (err) {
+        return next(err);
+      });
+    })    
+}
 
 //info from form on req.query
 async function search(req,res) {
@@ -133,4 +146,17 @@ function deleteMovies(req, res){
       return next(err);
     });
   });
+}
+
+function show(req,res){
+  Movie.findById(req.params.id).then(function(movie){
+    res.render('movies/show', {title: movie.info.Title , movie, page:"movies"})
+  })
+}
+///page will be pased in through req.query, go back res,redirect will also be passed in through req.query
+
+function rating(req,res){
+  Movie.findById(req.params.id).then(function (movie) {
+    res.render('movies/rating', { movie, title: "rating", page: "seen" });
+  })
 }

@@ -1,41 +1,33 @@
 <%- include('../partials/header') %>
-    <div class="movie-holder">
-        <% movies.forEach(function(movie){%>
-            <div id="searchMovie" class="movie" >
-                <div id="poster" style="background-image:url(<%= movie.Poster%>)"></div>
-                <div id="title" <%- movie.Title.length> 50 ? 'class="bigtext"' : '' %>>
-                    <div>
-                        <%= movie.Title%>
-                    </div>
-                </div>
-                <div id="director">
-                    <div class="small">Director</div>
-                    <div class="big">
-                        <%= movie.Director%>
-                    </div>
-                </div>
-                <div id="year">
-                    <div class="small">Release Year</div>
-                    <div class="big">
-                        <%= movie.Year%>
-                    </div>
-                </div>
-                <div id="description">
-                    <div class="small">Description</div>
-                    <div class="biginfo">
-                        <%= movie.Plot%>
-                    </div>
-                </div>
-                <div id="links">
-                    <a href="">DETAILS</a>
-                    <form action="/movies/create" method="POST">
-                        <button id="button2" value="<%= movie.imdbID%>" name="imdb" type="submit">ADD MOVIE</button>
-                    </form>
-                </div>
+<div class="movie-holder">
+    <% movies.forEach(function(movie){%>
+        <div id="searchMovie" class="movie" >
+            <div id="poster" style="background-image:url(<%= movie.Poster%>)"></div>
+            <div id="title" <%- movie.Title.length> 50 ? 'class="bigtext"' : '' %>>
+                <div><%= movie.Title%></div>
             </div>
-            <%})%>
-    </div>
-    <%- include('../partials/footer') %>
+            <div id="director">
+                <div class="small">Director</div>
+                <div class="big"><%= movie.Director%></div>
+            </div>
+            <div id="year">
+                <div class="small">Release Year</div>
+                <div class="big"><%= movie.Year%></div>
+            </div>
+            <div id="description">
+                <div class="small">Description</div>
+                <div class="biginfo"><%= movie.Plot%></div>
+            </div>
+            <div id="links">
+                <a href="">DETAILS</a>
+                <form action="/movies/create" method="POST">
+                    <button id="searchadd" value="<%= movie.imdbID%>" name="imdb" type="submit">ADD MOVIE</button>
+                </form>
+            </div>
+        </div>
+    <%})%>
+</div>
+<%- include('../partials/footer') %>
 
 
 

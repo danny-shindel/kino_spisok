@@ -3,30 +3,21 @@
 <div class="movie-holder-home">
     <% movies.forEach(function(movie){%>
         <div class="movie-home">
-            <div id="poster" style="background-image:url(<%= movie.info.Poster%>)"></div>
-            <div id="title" <%- movie.info.Title.length> 30 ? 'class="bigtext"' : '' %>>
-                <div>
-                    <%= movie.info.Title%>
-                    <!-- <%= movie.users.length %> -->
-                </div>
+            <div id="poster" style="background-image:url(<%= movie.info.Poster%>)"><div id="usercount"><%= movie.users.length %></br>SPISKE</div></div>
+            <div id="title" <%- movie.info.Title.length> 50 ? 'class="bigtext"' : '' %>>
+                <div><%= movie.info.Title%></div>
             </div>
             <div id="director">
                 <div class="small">Director</div>
-                <div class="big">
-                    <%= movie.info.Director%>
-                </div>
+                <div class="big"><%= movie.info.Director%></div>
             </div>
             <div id="year">
                 <div class="small">Release Year</div>
-                <div class="big">
-                    <%= movie.info.Year%>
-                </div>
+                <div class="big"><%= movie.info.Year%></div>
             </div>
             <div id="description">
                 <div class="small">Description</div>
-                <div class="biginfo">
-                    <%= movie.info.Plot%>
-                </div>
+                <div class="biginfo"><%= movie.info.Plot%></div>
             </div>
             <div id="links">
                 <a href="">COMMENTS</a>
@@ -39,54 +30,35 @@
                     <%}%>
                 <%}%>
             </div>
+            <% if (movie.comments.length) { %>
+            <div id="reviews">
+                        <% movie.comments.forEach(function(c) { %>
+                        <div id="review-holder">
+                            <td class="review-user"><img style="height:2vmin" src="<%= c.userAvatar %>">&nbsp;
+                            <div><%= c.userName %></div>
+                            <div><%= c.content %></div>
+                            <div><%= c.createdAt.toLocaleDateString() %></div>
+                                <% if (user && user._id.equals(c.user)) { %>
+                                    <form action="/comments/<%= c._id %>?_method=DELETE" method="POST"><button
+                                            type="submit">X</button>
+                                    </form>
+                                    <% } %>
+                        </div>
+                        <% }); %> 
+            </div>
+            <% } %>
+            <% if (user) { %>  
+            <div id="post">
+                <form id="postpost" method="POST" action="/movies/<%=movie._id%>/comments">
+                    <input id="postarea" autocomplete="off" type="text" name="content" placeholder="PRESS ENTER TO SUBMIT REVIEW">
+                </form>
+            </div>
+            <%} %>
         </div>
-        <%})%>
+    <%})%>
 </div>
 
-<!-- <% movies.forEach(function(movie){%>
-    </br>
-    <div><%= movie.info.Title%></div>
-    <div><%= movie.info.Director%></div>
-    <% if (movie.comments.length) { %>
-        <table>
-            <thead>
-                <tr>
-                    <th>User</th>
-                    <th>Date</th>
-                    <th>Review</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                    <% movie.comments.forEach(function(c) { %>
-                            <tr>
-                                <td class="review-user"><img style="height:2vmin" src="<%= c.userAvatar %>">&nbsp;
-                                    <%= c.userName %>
-                                </td>
-                                <td><%= c.createdAt.toLocaleDateString() %></td>
-                                <td><%= c.content %></td>
-                                <td>
-                                    <% if (user && user._id.equals(c.user)) { %>
-                                        <form action="/comments/<%= c._id %>?_method=DELETE" method="POST"><button
-                                                type="submit">X</button>
-                                        </form>
-                                        <% } %>
-                                </td>
-                            </tr>
-                            <% }); %>
-                             
-            </tbody>
-        </table>
-        <% } else { %>
-            <h5>No Reviews Yet</h5>
-            <% } %>
-    <% if (user) { %>
-        <form  method="POST" action="/movies/<%=movie._id%>/comments">
-            <label>Review:</label>
-            <textarea name="content"></textarea>
-            <input type="submit" value="Add Review">
-        </form>
-        <%} %>
-    <%})%> -->
-
 <%- include('./partials/footer') %>
+
+
+

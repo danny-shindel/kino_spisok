@@ -10,21 +10,20 @@ nav {
 nav > a{
   margin: 2vmin;
   text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
+  padding: 1.5vmin;
+  border-radius: 2vmin;
   font-size: 3vmin;
   color: RGB(126, 130, 156);
 }
 
 nav > a:hover{
-  color: RGB(64,65,63);
+  color: RGB(66,68,81);
   background-color: white;
   font-size: 3vmin;
 }
 
 nav > a.active {
   color: white;
-  cursor: default;
 }
 
 nav > a.active:hover{

@@ -1,0 +1,18 @@
+<%- include('../partials/header') %>
+<div id="rating">
+    <div id="rating-title"><%= movie.info.Title %></div>
+    <form action="/movies/<%=movie._id%>/seen" method="POST">
+        <button class="clip-star" value="1" name="rating" type="submit"></button>
+        <button class="clip-star" value="2" name="rating" type="submit"></button>
+        <button class="clip-star" value="3" name="rating" type="submit"></button>
+        <button class="clip-star" value="4" name="rating" type="submit"></button>
+        <button class="clip-star" value="5" name="rating" type="submit"></button>
+        <button class="clip-star" value="6" name="rating" type="submit"></button>
+        <button class="clip-star" value="7" name="rating" type="submit"></button>
+        <button class="clip-star" value="8" name="rating" type="submit"></button>
+        <button class="clip-star" value="9" name="rating" type="submit"></button>
+        <button class="clip-star" value="10" name="rating" type="submit"></button>
+    </form>
+    <div id="rating-text">PLEASE RATE</div>
+</div>
+<%- include('../partials/footer') %>

@@ -7,7 +7,8 @@
 }
 
 .movie {
-    padding: 2vmin 6vmin 2vmin 2vmin;
+    font-family: 'Montserrat', sans-serif;
+    padding: 2vmin 4vmin 2vmin 2vmin;
     background-color: white;
     margin: 4vmin 0 2vmin 0;
     width: 130vmin;
@@ -22,14 +23,6 @@
     "poster director year"
     "poster description description"
     "poster links links"
-}
-
-#searchMovie {
-    border: .5vmin solid RGB(66,68,81);
-}
-
-#searchMovie:hover {
-    border: .5vmin solid red;
 }
 
 #poster {
@@ -53,7 +46,7 @@
     overflow: hidden;
 }
 
-#title.bigtext {
+#title.longtext {
     font-size:3.8vmin;
 }
 
@@ -85,20 +78,17 @@
 }
 
 .small {
-    font-family: 'Montserrat', sans-serif;
     font-size: 2vmin;
     font-weight: 200;
     color: RGB(121,125,153);
 }
 
 .big {
-    font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 4.5vmin;
 }
 
-.biginfo {
-    font-family: 'Montserrat', sans-serif;
+.info {
     font-weight: 400;
     font-size: 2vmin;
 }
@@ -115,7 +105,6 @@
     border-radius: 5px;
     font-size: 2.5vmin;
     color: RGB(126, 130, 156);
-    font-family: 'Montserrat', sans-serif;
 }
 
 #links > a:hover{
@@ -124,18 +113,17 @@
     font-size: 2.5vmin;
 }
 
-#button {
+#delete {
     text-decoration: none;
     padding: 10px;
     border-radius: 5px;
     font-size: 2.5vmin;
     color: RGB(126, 130, 156);
-    font-family: 'Montserrat', sans-serif;
     background-color: white;
     border: 2px solid white;
 }
 
-#button:hover {
+#delete:hover {
     color: white;
     background-color: red;
     font-size: 2.5vmin;

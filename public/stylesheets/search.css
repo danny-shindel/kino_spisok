@@ -1,0 +1,28 @@
+/* new.ejs */
+
+#searchadd {
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 2.5vmin;
+    color: RGB(126, 130, 156);
+    font-family: 'Montserrat', sans-serif;
+    background-color: white;
+    border: 2px solid white;
+}
+
+#searchadd:hover {
+    color: white;
+    background-color: RGB(34, 37, 135);
+    font-size: 2.5vmin;
+}
+
+/* search.ejs */
+
+#searchMovie {
+    border: .5vmin solid RGB(66,68,81);
+}
+
+#searchMovie:hover {
+    border: .5vmin solid red;
+}

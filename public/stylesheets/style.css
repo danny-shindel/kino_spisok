@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-a {
-  color: #00B7FF;
-}
-
 body {
   margin: 0;
   height: 100vh;
@@ -13,10 +9,8 @@ body {
   grid-template-rows: 8vmin 1fr;
   grid-template-areas: 
     "nav"
-    "main";
-  color: RGB(57,57,57);
+    "main"; 
 }
-
 
 main {
   grid-area: main;
