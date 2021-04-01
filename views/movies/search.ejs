@@ -18,7 +18,7 @@
                 <div class="small">Description</div>
                 <div class="info"><%= movie.Plot%></div>
             </div>
-            <div id="links">
+            <div class="links">
                 <a id="imdb" target="_blank" href="https://www.imdb.com/title/<%= movie.imdbID%>/">IMDB</a>
                 <form action="/movies/create" method="POST">
                     <button id="addbutton" value="<%= movie.imdbID%>" name="imdb" type="submit">ADD MOVIE</button>

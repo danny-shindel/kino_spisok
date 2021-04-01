@@ -1,5 +1,8 @@
 <%- include('../partials/header') %>
 <div class="movie-holder">
+<% if (movies.length === 0) {%>
+    <div id="message">CLICK "ADD" TO SEARCH AND ADD MOVIES TO YOUR WATCHLIST</div>
+<% }%>
 <% movies.forEach(function(movie){%>
     <div class="movie">
         <div id="poster" style="background-image:url(<%= movie.info.Poster%>)"></div>
@@ -18,7 +21,7 @@
             <div class="small">Description</div>
             <div class="info"><%= movie.info.Plot%></div>
         </div>
-        <div id="links">
+        <div class="links">
             <a id="regular" href="/movies/<%=movie._id%>/rating">SEEN</a>
             <a id="imdb" target="_blank" href="https://www.imdb.com/title/<%= movie.info.imdbID%>/">IMDB</a>
             <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST"><button id="delete" type="submit">DELETE</button>

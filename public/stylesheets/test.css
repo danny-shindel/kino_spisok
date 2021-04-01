@@ -1,0 +1,29 @@
+.rating4 {
+    display: flex;
+}
+
+.rating4 input {
+    display:none;
+}
+
+.rating4 label {
+    display: block;
+    cursor: pointer;
+    width: 50px;
+}
+.rating4 label:before {
+    content: '\f005';
+    font-family: fontAwesome;
+    position: relative;
+    display: block;
+    font-size: 7vmin;
+    color: white
+}
+.rating4 label:after {
+    content: '\f005';
+    font-family: fontAwesome;
+    position: relative;
+    display: block;
+    font-size: 7vmin;
+    color: red
+}

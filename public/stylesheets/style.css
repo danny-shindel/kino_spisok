@@ -34,7 +34,7 @@ nav > a{
   padding: 1.5vmin;
   border-radius: 2vmin;
   font-size: 3vmin;
-  color: RGB(126, 130, 156);
+  color: RGB(97, 100, 120);
 }
 
 nav > a:hover{
@@ -45,6 +45,7 @@ nav > a:hover{
 
 nav > a.active {
   color: white;
+  font-weight: 400;
 }
 
 nav > a.active:hover{
@@ -90,4 +91,9 @@ nav > .unclick {
     color: RGB(66,68,81);
 }
 
+#message {
+  font-family: 'Montserrat', sans-serif;
+  color: RGB(66,68,81);
+  margin-top: 30vmin;
+}
 

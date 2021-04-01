@@ -1,38 +1,38 @@
 <%- include('./partials/header') %>
 
 <div class="movie-holder-home">
-    <% movies.forEach(function(movie){%>
+    <% for (i=0; i < movies.length; i++){%>
         <div class="movie-home">
-            <div id="poster" style="background-image:url(<%= movie.info.Poster%>)"><div id="usercount"><%= movie.users.length %></br>SPISKE</div></div>
-            <div id="title" <%- movie.info.Title.length > 50 ? 'class="longtext"' : '' %>>
-                <div><%= movie.info.Title%></div>
+            <div id="poster" style="background-image:url(<%= movies[i].info.Poster%>)"><div id="usercount"><%= movies[i].users.length %></br>SPISKE</div></div>
+            <div id="title" <%- movies[i].info.Title.length > 50 ? 'class="longtext"' : '' %>>
+                <div><%= movies[i].info.Title%></div>
             </div>
             <div id="director">
                 <div class="small">Director</div>
-                <div <%- movie.info.Director.length> 25 ? 'class="longdirect"' : 'class="big"' %>><%= movie.info.Director%></div>
+                <div <%- movies[i].info.Director.length> 25 ? 'class="longdirect"' : 'class="big"' %>><%= movies[i].info.Director%></div>
             </div>
             <div id="year">
                 <div class="small">Release Year</div>
-                <div class="big"><%= movie.info.Year%></div>
+                <div class="big"><%= movies[i].info.Year%></div>
             </div>
             <div id="description">
                 <div class="small">Description</div>
-                <div class="info"><%= movie.info.Plot%></div>
+                <div class="info"><%= movies[i].info.Plot%></div>
             </div>
-            <div id="links">
-                <button id="comments" >COMMENTS</button>
-                <a id="imdb" target="_blank" href="https://www.imdb.com/title/<%= movie.info.imdbID%>/">IMDB</a>
+            <div class="links" id="<%= i %>">
+                <button id="comments" class="clicked" >COMMENTS</button>
+                <a id="imdb" target="_blank" href="https://www.imdb.com/title/<%= movies[i].info.imdbID%>/">IMDB</a>
                 <% if (user) {%>
-                    <% if ( !movie.users.some(lover => lover.equals(user._id)) && !movie.seenUsers.some(lover => lover.equals(user._id))) {%>
+                    <% if ( !movies[i].users.some(lover => lover.equals(user._id)) && !movies[i].seenUsers.some(lover => lover.equals(user._id))) {%>
                     <form action="/movies/create?home=true" method="POST">
-                        <button id="addbutton" value="<%= movie.info.imdbID%>" name="imdb" type="submit">ADD MOVIE</button>
+                        <button id="addbutton" value="<%= movies[i].info.imdbID%>" name="imdb" type="submit">ADD MOVIE</button>
                     </form>
                     <%}%>
                 <%}%>
             </div>
-            <div id="reviews">
-            <% if (movie.comments.length) { %>
-                        <% movie.comments.forEach(function(c) { %>
+            <div id="reviews" class="dropdown">
+            <% if (movies[i].comments.length) { %>
+                        <% movies[i].comments.forEach(function(c) { %>
                         <div id="review-holder">
                             <div id="icon" style="background-image: url(<%= c.userAvatar %>);">
                                 <% if (user && user._id.equals(c.user)) { %>
@@ -48,13 +48,13 @@
                         <% }); %> 
             <% } %>
             <% if (user) { %>  
-                <form id="post" method="POST" action="/movies/<%=movie._id%>/comments">
+                <form id="post" method="POST" action="/movies/<%=movies[i]._id%>/comments">
                     <input id="postarea" autocomplete="off" type="text" name="content" placeholder="PRESS ENTER TO SUBMIT COMMENT">
                 </form>
             <%} %>
             </div>
         </div>
-    <%})%>
+    <%}%>
 </div>
 
 <%- include('./partials/footer') %>
