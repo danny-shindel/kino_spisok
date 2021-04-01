@@ -1,20 +1,22 @@
 <%- include('../partials/header') %>
 <div id="rating">
+    <div id="rating-text">PLEASE RATE</div>
     <div id="rating-title"><%= movie.info.Title %></div>
-    <form action="/movies/<%=movie._id%>/seen" method="POST">
+    <!-- <form action="/movies/<%=movie._id%>/seen" method="POST">
         <button class="clip-star" value="1" name="rating" type="submit"></button>
         <button class="clip-star" value="2" name="rating" type="submit"></button>
         <button class="clip-star" value="3" name="rating" type="submit"></button>
         <button class="clip-star" value="4" name="rating" type="submit"></button>
         <button class="clip-star" value="5" name="rating" type="submit"></button>
+    </form> -->
+    <form class = "starz" action="/movies/<%=movie._id%>/seen" method="POST">
+        <button id="starbutton"><input type="submit" value="Add Rating">ӘИITAЯ TIMꓭUƧ</button>
+        <input type="radio" name="rating" value="5" id="star1"><label for="star1"></label>
+        <input type="radio" name="rating" value="4" id="star2"><label for="star2"></label>
+        <input type="radio" name="rating" value="3" id="star3"><label for="star3"></label>
+        <input type="radio" name="rating" value="2" id="star4"><label for="star4"></label>
+        <input type="radio" name="rating" value="1" id="star5"><label for="star5"></label>
     </form>
-    <div class = "rating4">
-        <input type="radio" name="star" id="star1"><label for="star1"></label>
-        <input type="radio" name="star" id="star2"><label for="star2"></label>
-        <input type="radio" name="star" id="star3"><label for="star3"></label>
-        <input type="radio" name="star" id="star4"><label for="star4"></label>
-        <input type="radio" name="star" id="star5"><label for="star5"></label>
-    </div>
-    <div id="rating-text">PLEASE RATE</div>
+    <!-- <div id="rating-text">PLEASE RATE</div> -->
 </div>
 <%- include('../partials/footer') %>

@@ -1,0 +1,72 @@
+.starz {
+    margin-top: 4vmin;
+    /* position:absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(180deg); */
+    transform: rotateY(180deg);
+    display: grid;
+    grid-template-columns: 8vmin 8vmin 8vmin 8vmin 8vmin;
+    grid-template-rows: 6vmin 1fr;
+    grid-template-areas: 
+    "star star star star star"
+    "button button button button button"
+    ;
+}
+
+#starbutton {
+    margin-top: 4vmin;
+    margin-left:7.3vmin;
+    grid-area: button;
+    font-family: 'Montserrat', sans-serif;
+    /* transform: translate(-50%, -50%) rotateY(180deg); */
+    text-decoration: none;
+    color: RGB(138, 140, 153);
+    background-color: RGB(217,191,76);
+    border: none;
+    padding: 1.6vmin;
+    border-radius: 2vmin;
+    font-size: 2.5vmin;
+    width: 24vmin;
+}
+
+#starbutton:hover {
+    background-color: RGB(66,68,81);
+    color: white;
+    font-weight: 600;
+}
+
+.starz input {
+    display:none;
+}
+
+.starz label {
+    display: block;
+    cursor: pointer;
+    width: 10vmin;
+}
+.starz label:before {
+    content: '\f005';
+    font-family: fontAwesome;
+    position: relative;
+    display: block;
+    font-size: 7vmin;
+    color: RGB(242, 228, 162);
+}
+.starz label:after {
+    content: '\f005';
+    font-family: fontAwesome;
+    position: absolute;
+    display: block;
+    font-size: 7vmin;
+    color: red;
+    top: 0;
+    opacity: 0;
+    transition: .2s;
+}
+
+.starz label:hover:after,
+.starz label:hover ~ label:after,
+.starz input:checked ~ label:after {
+    opacity: 1;
+}

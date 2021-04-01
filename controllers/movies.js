@@ -49,10 +49,10 @@ function newMovie(req,res) {
 
 function unSeen(req, res) {
   Movie.findById(req.params.id).then(function (movie) {
-      const rating = movie.ratings.find(function(rating){
-        return rating.user.toString() === req.user._id.toString();
-      });
-      rating.remove();
+      // const rating = movie.ratings.find(function(rating){
+      //   return rating.user.toString() === req.user._id.toString();
+      // });
+      // rating.remove();
       movie.seenUsers.remove(req.user._id);
       movie.users.push(req.user._id);
       movie.save().then(function() {
