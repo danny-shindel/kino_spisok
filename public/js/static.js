@@ -8,8 +8,6 @@ buttonEl.addEventListener('click',open);
 function open(evt){
     const isButton = evt.target.id === 'comments';
     if (isButton) {
-        comments[evt.target.parentElement.id].classList.toggle("dropdown");
-        
+        comments[evt.target.parentElement.id].classList.toggle("dropdown"); 
     } 
-    console.log(evt)
 }

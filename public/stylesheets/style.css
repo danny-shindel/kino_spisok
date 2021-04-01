@@ -101,3 +101,25 @@ nav > .unclick {
   margin-top: 30vmin;
 }
 
+/* RATING PAGE */
+
+#rating {
+    font-family: 'Montserrat', sans-serif;
+    height: 80vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#rating-title {
+    text-align: center;
+    width: 130vmin;
+    font-weight: 600;
+    font-size: 7vmin;
+}
+
+#rating-text {
+    font-weight: 400;
+    color: RGB(126, 130, 156);
+}

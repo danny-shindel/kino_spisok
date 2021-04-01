@@ -1,9 +1,5 @@
 .starz {
     margin-top: 4vmin;
-    /* position:absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotateY(180deg); */
     transform: rotateY(180deg);
     display: grid;
     grid-template-columns: 8vmin 8vmin 8vmin 8vmin 8vmin;
@@ -19,7 +15,6 @@
     margin-left:7.3vmin;
     grid-area: button;
     font-family: 'Montserrat', sans-serif;
-    /* transform: translate(-50%, -50%) rotateY(180deg); */
     text-decoration: none;
     color: RGB(138, 140, 153);
     background-color: RGB(217,191,76);
