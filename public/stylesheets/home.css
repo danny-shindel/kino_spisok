@@ -161,9 +161,11 @@ button:focus {
     #title.longtext {
         font-size: 2.8vmin;
     }
+    #postarea {
+        width: 89vmin;
+    }
 
 }
-
 
 
 

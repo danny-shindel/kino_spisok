@@ -30,7 +30,8 @@
                     <%}%>
                 <%}%>
             </div>
-            <div id="reviews" class="dropdown">
+            <%let ddd = movies[i].info.imdbID %>
+            <div id="reviews" class=<%= (dropdown && ddd === dd) ? "" : "dropdown" %>>
             <% if (movies[i].comments.length) { %>
                         <% movies[i].comments.forEach(function(c) { %>
                         <div id="review-holder">

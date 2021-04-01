@@ -13,7 +13,8 @@ function create(req, res) {
         req.body.userAvatar = req.user.avatar;
         movie.comments.push(req.body);
         movie.save(function (err) {
-            res.redirect(`/`);
+            Movie.aggregate([{ $addFields: { numUsers: { $size: '$users' } } }, { $sort: { numUsers: -1 } }, { $limit: 5 }])
+                .then(movies => res.render('home', { title: 'HOME SCREEN', movies, page: 'home', dropdown: true, dd: movie.info.imdbID }));
         });
     });
 }
@@ -24,7 +25,8 @@ function deleteComment(req, res, next) {
         if (!comment.user.equals(req.user._id)) return res.redirect("/");
         comment.remove();
         movie.save().then(function () {
-            res.redirect('/');
+            Movie.aggregate([{ $addFields: { numUsers: { $size: '$users' } } }, { $sort: { numUsers: -1 } }, { $limit: 5 }])
+                .then(movies => res.render('home', { title: 'HOME SCREEN', movies, page: 'home', dropdown: true, dd: movie.info.imdbID }));
         }).catch(function (err) {
             return next(err);
         });
