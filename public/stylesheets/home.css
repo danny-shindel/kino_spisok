@@ -89,7 +89,7 @@ button:focus {
     grid-area: user;
     color: RGB(81, 84, 166);
     font-weight: 600;
-    font-size: 3vmin;
+    font-size: 2.5vmin;
     margin-left: 1vmin;
 }
 
@@ -97,6 +97,7 @@ button:focus {
     color:transparent;
     background-color: transparent;
     border: none;
+    font-size: 3vmin;
 }
 
 

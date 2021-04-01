@@ -20,7 +20,7 @@
                 <div class="info"><%= movie.info.Plot%></div>
             </div>
             <div id="links">
-                <a id="comments" href="">COMMENTS</a>
+                <button id="comments" >COMMENTS</button>
                 <a id="imdb" target="_blank" href="https://www.imdb.com/title/<%= movie.info.imdbID%>/">IMDB</a>
                 <% if (user) {%>
                     <% if ( !movie.users.some(lover => lover.equals(user._id)) && !movie.seenUsers.some(lover => lover.equals(user._id))) {%>

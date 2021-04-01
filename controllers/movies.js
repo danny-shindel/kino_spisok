@@ -73,7 +73,11 @@ function createRating(req, res){
     movie.users.remove(req.user._id);
     movie.seenUsers.push(req.user._id);
     movie.save().then(function () {
-      res.redirect('/movies')
+      if (req.query.update){
+        res.redirect('/movies/seen')
+      } else {
+        res.redirect('/movies')
+      }
     }).catch(function (err) {
       return next(err);
     });
@@ -144,7 +148,11 @@ function deleteMovies(req, res){
     movie.seenUsers.remove(req.user._id);
     movie.users.remove(req.user._id);
     movie.save().then(function () {
-      res.redirect('/movies');
+      if (req.query.seen){
+        res.redirect('/movies/seen');
+      } else {
+        res.redirect('/movies');
+      }
     }).catch(function (err) {
       return next(err);
     });
@@ -154,6 +162,6 @@ function deleteMovies(req, res){
 
 function rating(req,res){
   Movie.findById(req.params.id).then(function (movie) {
-    res.render('movies/rating', { movie, title: "rating", page: "seen" });
+    res.render('movies/rating', { movie, title: "rating", page: "movies" });
   })
 }

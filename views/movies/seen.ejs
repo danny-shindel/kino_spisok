@@ -2,7 +2,19 @@
     <div class="movie-holder">
         <% movies.forEach(function(movie){%>
             <div class="movie" style="border:.5vmin solid RGB(43,67,224) ">
-                <div id="poster" style="background-image:url(<%= movie.info.Poster%>)"></div>
+                <div id="poster" style="background-image:url(<%= movie.info.Poster%>)">
+                    <div id="seenrating">
+                        <% let rating = movie.ratings.find(function(rating){%>
+                            <%return rating.user.toString() === user._id.toString()});%>
+                        <form id="ratingform" class="rating<%= rating.rating%>" action="/movies/<%=movie._id%>/seen?update=true" method="POST">
+                                <button class="clipstar" value="1" name="rating" type="submit"></button>
+                                <button class="clipstar" value="2" name="rating" type="submit"></button></br>
+                                <button class="clipstar" value="3" name="rating" type="submit"></button>
+                                <button class="clipstar" value="4" name="rating" type="submit"></button>
+                                <button class="clipstar" value="5" name="rating" type="submit"></button>
+                        </form>
+                    </div>
+                </div>
                 <div id="title" <%- movie.info.Title.length> 50 ? 'class="longtext"' : '' %>>
                     <div><%= movie.info.Title%></div>
                 </div>
@@ -21,7 +33,7 @@
                 <div id="links">
                     <a id = "regular" href="/movies/<%=movie._id%>/seen">UNSEE</a>
                     <a id="imdb" target="_blank" href="https://www.imdb.com/title/<%= movie.info.imdbID%>/">IMDB</a>
-                    <form action="/movies/<%= movie._id %>?_method=DELETE" method="POST"><button id="delete"
+                    <form action="/movies/<%= movie._id %>?_method=DELETE&seen=true" method="POST"><button id="delete"
                             type="submit">DELETE</button>
                     </form>
                 </div>

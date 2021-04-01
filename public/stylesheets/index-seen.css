@@ -44,6 +44,8 @@
     align-items: flex-start;
     justify-content: center;
     overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 #title.longtext {
@@ -60,6 +62,10 @@
     overflow: scroll;
 }
 
+.longdirect{
+    font-size:3vmin;
+}
+
 #year {
     grid-area: year;
     display: flex;
@@ -71,13 +77,6 @@
 #description {
     grid-area: description;
     margin-left: 2vmin;
-}
-
-
-#links {
-    grid-area: links;
-    margin-left: 2vmin;
-    margin-bottom: 2vmin
 }
 
 .small {
@@ -96,34 +95,40 @@
     font-size: 2vmin;
 }
 
-.longdirect{
-    font-size:3vmin;
-}
-
 /* LINKS */
 
 #links {
+    font-family: 'Montserrat', sans-serif;
+    grid-area: links;
+    margin-left: 2vmin;
+    margin-bottom: 2vmin;
     display:flex;
     justify-content: space-around;
     align-items: center;
 }
 
+#links > a,
+#delete,
+#comments,
+#addbutton {
+    padding: 1.6vmin;
+    border-radius: 2vmin;
+    font-size: 2.5vmin;
+}
+
 #links > a {
     text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 2.5vmin;
     color: RGB(138, 140, 153);
 }
 
+#comments,
+#addbutton,
 #delete {
+    font-family: 'Montserrat', sans-serif;
     text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 2.5vmin;
     color: RGB(138, 140, 153);
     background-color: white;
-    border: 2px solid white;
+    border: none;
 }
 
 #delete:hover {
@@ -139,16 +144,6 @@
     font-weight: 600;
 }
 
-#addbutton {
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 2.5vmin;
-    color: RGB(138, 140, 153);
-    font-family: 'Montserrat', sans-serif;
-    background-color: white;
-    border: 2px solid white;
-}
 
 #addbutton:hover,
 #regular:hover{
@@ -157,8 +152,68 @@
     font-weight: 600;
 }
 
+
 #comments:hover {
     color: white;
     background-color: RGB(66,68,81);
     font-weight: 600;
+}
+
+
+/* HOVER RATING */
+.clipstar {
+  background:RGB(242, 228, 162);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  display: inline-block;
+  height: 7vmin;
+  width: 7vmin;
+  margin: 3vmin 0 2vmin 0;
+  background:RGB(255, 173, 173);
+}
+
+.rating1 button:nth-child(-n+1){
+    background:red;
+}
+
+.rating2 button:nth-child(-n+3){
+    background:red;
+}
+
+.rating3 button:nth-child(-n+4){
+    background:red;
+}
+
+.rating4 button:nth-child(-n+5){
+    background:red;
+}
+
+.rating5 button:nth-child(-n+6){
+    background:red;
+}
+
+#seenrating {
+    opacity: 0;
+    text-align: center;
+    padding-top: 10vmin;
+    height: 45vmin;
+    color: transparent;
+    font-size: 6vmin;
+    font-family: 'Source Code Pro', monospace;
+}
+
+#seenrating:hover {
+    opacity: 1;
+    color: RGB(66,68,81);
+    background-color: rgba(255,255,255,.8);
+}
+
+
+/* search ejs */
+
+#searchMovie {
+    border: .5vmin solid RGB(66,68,81);
+}
+
+#searchMovie:hover {
+    border: .5vmin solid red;
 }

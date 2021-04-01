@@ -65,3 +65,29 @@ nav > .unclick {
   cursor: default;
   color: white;
 }
+
+/* SEARCH TITLE PAGE */
+
+#searchtitle {
+    height: 80vmin;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#searchtitle > form > input {
+    margin-bottom: 3vmin;
+    font-size: 4vmin;
+    height: 7vmin;
+    width: 70vmin;
+    border-radius: 1vmin;
+    border: .4vmin solid blue;
+}
+
+#help {
+    color: RGB(66,68,81);
+}
+
+

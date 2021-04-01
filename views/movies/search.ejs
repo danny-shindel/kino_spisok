@@ -8,8 +8,7 @@
             </div>
             <div id="director">
                 <div class="small">Director</div>
-                <div <%- movie.Director.length> 25 ? 'class="longdirect"' : 'class="big"' %>><%= movie.Director%>
-                </div>
+                <div <%- movie.Director.length> 25 ? 'class="longdirect"' : 'class="big"' %>><%= movie.Director%></div>
             </div>
             <div id="year">
                 <div class="small">Release Year</div>
@@ -29,30 +28,3 @@
     <%})%>
 </div>
 <%- include('../partials/footer') %>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <% movies.forEach(function(movie){%>
-    <div><%= movie.Title%></div></br>
-    <div><%= movie.Year%></div></br>
-    <div><%= movie.Director%></div></br>
-    <div> <img src="<%= movie.Poster%>" alt=""></div>
-    <form action="/movies/create" method="POST">
-        <button value="<%= movie.imdbID%>" name="imdb" type="submit">GO</button>
-    </form>
-<%})%> -->
-
