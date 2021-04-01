@@ -44,8 +44,6 @@
     align-items: flex-start;
     justify-content: center;
     overflow: hidden;
-    overflow-y: hidden;
-    overflow-x: hidden;
 }
 
 #title.longtext {
@@ -59,7 +57,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .longdirect{
