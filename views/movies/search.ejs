@@ -8,7 +8,8 @@
             </div>
             <div id="director">
                 <div class="small">Director</div>
-                <div class="big"><%= movie.Director%></div>
+                <div <%- movie.Director.length> 25 ? 'class="longdirect"' : 'class="big"' %>><%= movie.Director%>
+                </div>
             </div>
             <div id="year">
                 <div class="small">Release Year</div>

@@ -83,7 +83,9 @@ function createRating(req, res){
 //info from form on req.query
 async function search(req,res) {
   console.log(req.query.title)
-  const title = req.query.title;
+  let title = req.query.title;
+  console.log(title.includes("&"))
+  if (title.includes("&")) title = title.replace("&", "%26") 
   if (!title) return res.render('movies/new', { title: 'New Movie', page: 'add', message: "PLEASE ENTER A TITLE", search: ''});////
   const apiResult = await fetch(`${searchURL}${title}&type=movie`).then(res => res.json());
   const search = apiResult.Search;

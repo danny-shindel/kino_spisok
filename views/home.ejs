@@ -9,7 +9,7 @@
             </div>
             <div id="director">
                 <div class="small">Director</div>
-                <div class="big"><%= movie.info.Director%></div>
+                <div <%- movie.info.Director.length> 25 ? 'class="longdirect"' : 'class="big"' %>><%= movie.info.Director%></div>
             </div>
             <div id="year">
                 <div class="small">Release Year</div>
@@ -34,15 +34,16 @@
             <% if (movie.comments.length) { %>
                         <% movie.comments.forEach(function(c) { %>
                         <div id="review-holder">
-                            <!-- <td class="review-user"><img style="height:2vmin" src="<%= c.userAvatar %>">&nbsp; -->
-                            <div id="usernamecomment"><img style="height:2vmin" src="<%= c.userAvatar %>">&nbsp<%= c.userName %></div>
-                            <div id="comment"><%= c.content %></div>
-                            <div id="dateofcomment"><%= c.createdAt.toLocaleDateString() %></div>
+                            <div id="icon" style="background-image: url(<%= c.userAvatar %>);">
                                 <% if (user && user._id.equals(c.user)) { %>
                                     <form id="commentdelete" action="/comments/<%= c._id %>?_method=DELETE" method="POST"><button
-                                            type="submit">X</button>
+                                            id= "commentbutton" type="submit">X</button>
                                     </form>
-                                    <% } %>
+                                <% } %>
+                            </div>
+                            <div id="usernamecomment"><%= c.userName %></div>
+                            <div id="comment"><%= c.content %></div>
+                            <div id="dateofcomment"><%= c.createdAt.toLocaleDateString() %></div>
                         </div>
                         <% }); %> 
             <% } %>

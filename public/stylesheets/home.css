@@ -45,12 +45,13 @@
 
 #postarea {
     grid-area: reviews;
-    width: 125vmin;
+    width: 124vmin;
     height: 10vmin;
     border-radius: 3vmin;
     border: .4vmin solid RGB(126, 130, 156);
     font-size: 2.5vmin;
     font-family: 'Montserrat', sans-serif;
+    margin-top: 2vmin;
 }
 
 input:focus,
@@ -60,44 +61,81 @@ button:focus {
     outline: none;
 }
 
-#reviews {
-    display:flex;
-    flex-direction: column;
-}
+
 
 #review-holder {
     margin-top:2vmin;
     display: grid;
-    grid-template-columns: 35vmin 1fr 17vmin 5vmin;
-    grid-template-rows: 5vmin;
+    grid-template-columns: 6vmin 1fr 10vmin;
+    grid-template-rows: 3vmin 3vmin 1fr;
     grid-template-areas:
-    " username comment date delete"
+    " icon user delete "
+    " icon content content "
+    " black content content"
+    
 }
+
+#icon {
+    height: 5vmin;
+    width: 5vmin;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+}
+
+
 
 #usernamecomment {
-    grid-area: username;
-    text-align: center;
+    grid-area: user;
+    color: RGB(81, 84, 166);
+    font-weight: 600;
+    font-size: 3vmin;
+    margin-left: 1vmin;
 }
 
+#commentbutton {
+    color:transparent;
+    background-color: transparent;
+    border: none;
+}
+
+
+#commentbutton:hover {
+    border: none;
+    background: red;
+    height: 5vmin;
+    width: 5vmin;
+    border-radius: 50%;
+    color: white;
+}
+
+
 #comment {
-    grid-area: comment;
-    text-align: center;
-    width:10vmin;
+    overflow: wrap;
+    margin-top: 1vmin;
+    margin-left: 1vmin;
+    grid-area: content;
+    font-size: 2.5vmin;
+    overflow-wrap: anywhere;
+    color: RGB(66,68,81);
+}
+
+#review {
+    grid-area: review;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: scroll;
 }
 
 #dateofcomment {
-    grid-area: date;
-    text-align: center;
-}
-
-#commentdelete {
     grid-area: delete;
-    text-align: center;
+    font-size: 2vmin;
+    text-align: right;
+    color: RGB(126, 130, 156);
 }
 
-#post {
-    margin-top: 2vmin;
-}
+
 
 
 
