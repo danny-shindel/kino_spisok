@@ -141,6 +141,30 @@ button:focus {
 }
 
 
+@media only screen and (max-width: 130vmin) {
+    .movie-home,
+    .movie {
+        width: 95vmin;
+    }
+    .info {
+        font-size: 1.5vmin;
+    }
+    .big {
+        font-size: 3.3vmin;
+    }
+    #title {
+        font-size: 3.6vmin;
+    }
+    .longdirect {
+        font-size: 2.2vmin;
+    }
+    #title.longtext {
+        font-size: 2.8vmin;
+    }
+
+}
+
+
 
 
 
