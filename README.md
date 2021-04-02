@@ -42,7 +42,7 @@
 
 [Kino Spisok](https://kinospisok.herokuapp.com/)
 
-[Trello Board](https://trello.com/b/Jo64MYwg/project-2)
+[Trello Board](https://trello.com/b/Jo64MYwg/kinospisok)
 
 
 ## Planned Future Enhancements
