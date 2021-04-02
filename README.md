@@ -1,9 +1,5 @@
 <img src="https://i.imgur.com/XknR10L.png" width="100%">&nbsp;&nbsp;&nbsp;
 
-
-
- BY DANNY SHINDEL
-
 ``General Assembly Cohort SEIR-02-22-21 Project 2``
 
 ## Project Description
