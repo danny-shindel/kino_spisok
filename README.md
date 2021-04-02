@@ -30,9 +30,9 @@
 
 ## Technologies Used
 
-- HTML
-- CSS
 - JavaScript
+- CSS
+- EJS
 - Node
 - Express
 - MongoDB
