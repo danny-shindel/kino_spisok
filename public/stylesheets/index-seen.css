@@ -119,12 +119,20 @@
     color: RGB(138, 140, 153);
 }
 
-#comments,
+.nocomments,
 #addbutton,
 #delete {
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     color: RGB(138, 140, 153);
+    background-color: white;
+    border: none;
+}
+
+.yescomments {
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+    color: blue;
     background-color: white;
     border: none;
 }
@@ -150,7 +158,8 @@
 }
 
 
-#comments:hover {
+.nocomments:hover,
+.yescomments:hover {
     color: white;
     background-color: RGB(66,68,81);
     font-weight: 600;
