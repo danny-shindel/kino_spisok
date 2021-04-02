@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const homeCtrl = require('../controllers/home');
-const isLoggedIn = require('../config/auth');
-
+const Movie = require('../models/movie');
 
 /* GET home page. */
-router.get('/', homeCtrl.index) 
+router.get('/', function(req, res){
+  Movie.aggregate([{ $addFields: { numUsers: { $size: '$users' } } }, { $sort: { numUsers: -1 } }, { $limit: 5 }])
+    .then(movies => res.render('home', { title: 'дом', movies, page: 'home', dropdown: false, dd: 1 }));
+});
 
 router.get('/auth/google', passport.authenticate(
   'google',
