@@ -59,7 +59,7 @@ function unSeen(req, res) {
 
 async function search(req,res) {
   let title = req.query.title;
-  if (title.includes("&")) title = title.replace("&", "%26") 
+  if (title.includes("&")) title = title.replace("&", "%26");
   if (!title) return res.render('movies/new', { title: 'искать', page: 'add', message: "PLEASE ENTER A TITLE", search: ''});
   const apiResult = await fetch(`${searchURL}${title}&type=movie`).then(res => res.json());
   const search = apiResult.Search;
@@ -80,7 +80,7 @@ async function search(req,res) {
     seen.push(movie.imdbID);
     return true;
   });
-  if (!movies) return res.render('movies/new', { title: 'искать', page: 'add', message: "MOVIE CANT BE FOUND. CHECK SPELLING", search: req.query.title}); 
+  // if (!movies) return res.render('movies/new', { title: 'искать', page: 'add', message: "MOVIE CANT BE FOUND. CHECK SPELLING", search: req.query.title}); 
   res.render('movies/search', { movies, title: "результаты", page: 'add'})
 }
 
