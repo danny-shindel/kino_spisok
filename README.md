@@ -12,19 +12,19 @@
     - My application is based on the idea of a prospective movie watch list. Users can login through OAuth and begin searching and adding movies to their watch list. Once users watch a movie on their list they can move that movie to their "seen" list and give it a rating. Both users and non-users have access to the home page, which shows the top 5 movies featured on the most user lists, but only users and comment on those top 5 movies. 
 
 ## Screenshots
-<img  src="https://i.imgur.com/LapcrQz.png" width="450vmin">
+<img  src="https://i.imgur.com/LapcrQz.png" width="80%">
 
 > Home Screen: The 5 movies on the home screen are the top 5 saved movies by user of Kino Spisok. Hovering over the movie poster reveals how many "spiske" or lists, they are saved to. All movies IMDB page is linked in any view with the "IMDB" link.
 
-<img  src="https://i.imgur.com/rVgM14u.png" width="450vmin">
+<img  src="https://i.imgur.com/rVgM14u.png" width="80%">
 
 > Commenting: Commenting is only avalible to users and only on the top 5 movie home screen. By clicking the "comment" button, the input and comments drop down. User can delete their own comments, but hovering over their avatar and clicking the red "x" for that comment. You can also add movies, you dont already have saved, from the top 5.
 
-<img  src="https://i.imgur.com/IN7nKeU.png" width="450vmin">
+<img  src="https://i.imgur.com/IN7nKeU.png" width="80%">
 
 > Watch List: Movies in your watch list are listed in alphabetical order by director. They provide a link to move that movie to your "seen" list, that movie's IMDB page link, and a delete link.
 
-<img  src="https://i.imgur.com/qDJjh7Z.png" width="450vmin">
+<img  src="https://i.imgur.com/qDJjh7Z.png" width="80%">
 
 > Seen Link: Your "seen" list movies are deliniated by their blue outline. Hovering over a "seen" movie's poster shows the rating a user gave it. That rating can be updated by just clicking on the desired star rating. The "unsee" link will move a movie back into a user's watch list. 
 
